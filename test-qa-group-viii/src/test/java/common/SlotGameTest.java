@@ -2,6 +2,7 @@ package common;
 
 import org.junit.jupiter.api.AfterAll;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -17,89 +18,33 @@ public class SlotGameTest {
 
     static Common common = new Common();
 
+    static SlotGameCommon slotCommon = new SlotGameCommon();
+
     static String browser = System.getProperty("web.browser.type");
 
     public static WebDriver driver;
-    public static WebDriverWait wait;
-    public static WebElement element;
-    public static Integer balance;
-    public static Integer finalBalance;
-    public static Integer errorCount;
 
-    @AfterAll
+
+    @BeforeAll
     public static void setUp(){
-        //driver = common.setUpDriver(browser,"http://asgag.eu/edu/Test_Task.html");
+        driver = common.setUpDriver(browser,"http://asgag.eu/edu/Test_Task.html");
     }
 
     @Test
-    public void winCombination111Test()  {
-        errorCount =0;
-        driver = common.setUpDriver(browser,"http://asgag.eu/edu/Test_Task.html");
-
-        balance = getBalance();
-
-        // Pay table check
-        if(!driver.findElement(
-                By.cssSelector("#paytable > center > div:nth-child(1) > table > tbody > tr.win111"))
-                .isDisplayed())
-        {
-            System.out.println("Error: Pay table in incorrect view");
-            errorCount++;
-        }
-
-        System.out.println("---------Game Started---------");
-        System.out.println("Initial balance : " + balance);
-
-        driver.findElement(By.cssSelector("#testdata")).sendKeys("11100");
-        driver.findElement(By.cssSelector("#spinButton")).click();
-
-        // Win box check
-        element = driver.findElement(By.id("winbox"));
-        if(!element.isDisplayed()){
-            System.out.println("Error: Win Box is not displayed");
-            errorCount++;
-        }
-        else{
-            System.out.println("Win Box is displayed");
-             if(element.getText().equals("Win 60 coins")){
-                 System.out.println("Win Box text : " + element.getText());
-             }
-             else{
-                 System.out.println("Error Win Box text incorrect : " + element.getText());
-                 errorCount++;
-             }
-        }
-
-        // Pay table check
-        if(!driver.findElement(
-                By.cssSelector("#paytable > center > div:nth-child(1) > table > tbody > tr.win111.achievement"))
-                .isDisplayed())
-        {
-            System.out.println("Error: Pay table not updated according to win amount");
-            errorCount++;
-        }
-        else {
-            System.out.println("Pay table updated according to win amount");
-        }
-
-        // Final balance check
-        finalBalance = getBalance();
-        if((balance + 59) != finalBalance){
-            System.out.println("Error: Final balance is incorrect");
-            errorCount++;
-        }
-
-        System.out.println("Final balance   : " + finalBalance);
-        System.out.println("---------Game Stopped---------");
-
-        // Errors check
-        assertEquals(0,errorCount);
-
+    public void winCombination111Test() {
+       slotCommon.game("11100", "60",driver);
     }
 
-    public int getBalance(){
-        return Integer.parseInt(driver.findElement(By.cssSelector("#balance-value")).getAttribute("value"));
+    @Test
+    public void winCombination1111Test() {
+        slotCommon.game("11110", "80",driver);
     }
+
+    @Test
+    public void winCombination11111Test() {
+        slotCommon.game("11111", "100",driver);
+    }
+
     @AfterAll
     public static void closeBrowser(){
         driver.quit();
