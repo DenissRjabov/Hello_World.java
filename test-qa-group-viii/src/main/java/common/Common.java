@@ -16,7 +16,7 @@ public class Common {
 
     public static WebDriverWait wait;
 
-    public WebDriver setUpDriver(String webBrowser, String url){
+    public WebDriver setUpDriver(String webBrowser, String url , int seconds){
         if(webBrowser == null) webBrowser ="chrome";
         switch (webBrowser) {
             case ("fireFox"):
@@ -34,7 +34,7 @@ public class Common {
         }
         driver.get(url);
         driver.manage().window().setSize(new Dimension(1936, 1048));
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
         return driver;
     }
 
