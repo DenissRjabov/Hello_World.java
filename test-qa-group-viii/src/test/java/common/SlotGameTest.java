@@ -56,7 +56,6 @@ public class SlotGameTest {
         slotCommon.game("12300", "0",driver, false);
     }
 
-   
     @Test
     public void winCombination333Test() {
 
@@ -67,13 +66,31 @@ public class SlotGameTest {
 
         slotCommon.game("33330", "240",driver, true);
     }
+
     @Test
-    public void winCombination33333Test() {
-
-        slotCommon.game("33333", "300",driver, true);
+    public void winCombination444Test() {
+        slotCommon.game("44400", "240",driver, true);
     }
-
-
+    @Test
+    public void winCombination4444Test() {
+        slotCommon.game("44440", "320",driver, true);
+    }
+    @Test
+    public void winCombination44444Test() {
+        slotCommon.game("44444", "400",driver, true);
+    }
+    @Test
+    public void winCombination555Test() {
+        slotCommon.game("55500", "300",driver, true);
+    }
+    @Test
+    public void winCombination5555Test() {
+        slotCommon.game("55550", "400",driver, true);
+    }
+    @Test
+    public void winCombination55555Test() {
+        slotCommon.game("55555", "500",driver, true);
+    }
 
     @AfterAll
     public static void closeBrowser(){
