@@ -13,6 +13,7 @@
     <junit5.version>5.9.1</junit5.version>
     <selenium.version>4.5.3</selenium.version>
     <version.webdrivermanager>5.3.0</version.webdrivermanager>
+    <version.log4j>2.19.0</version.log4j>
   </properties>
 
   <dependencies>
@@ -30,6 +31,16 @@
       <groupId>io.github.bonigarcia</groupId>
       <artifactId>webdrivermanager</artifactId>
       <version>${version.webdrivermanager}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${version.log4j}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${version.log4j}</version>
     </dependency>
   </dependencies>
 
