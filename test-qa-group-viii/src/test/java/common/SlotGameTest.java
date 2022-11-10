@@ -44,7 +44,54 @@ public class SlotGameTest {
     public void winCombination11111Test() {
         slotCommon.game("11111", "100",driver);
     }
-
+    @Test
+    public void winCombination222Test() {
+        slotCommon.game("22200", "120",driver);
+    }
+    @Test
+    public void winCombination2222Test() {
+        slotCommon.game("22220", "160",driver);
+    }
+    @Test
+    public void winCombination22222Test() {
+        slotCommon.game("22222", "200",driver);
+    }
+    @Test
+    public void winCombination333Test() {
+        slotCommon.game("33300", "180",driver);
+    }
+    @Test
+    public void winCombination3333Test() {
+        slotCommon.game("33330", "240",driver);
+    }
+    @Test
+    public void winCombination33333Test() {
+        slotCommon.game("33333", "300",driver);
+    }
+    @Test
+    public void winCombination444Test() {
+        slotCommon.game("44400", "240",driver);
+    }
+    @Test
+    public void winCombination4444Test() {
+        slotCommon.game("44440", "320",driver);
+    }
+    @Test
+    public void winCombination44444Test() {
+        slotCommon.game("44444", "400",driver);
+    }
+    @Test
+    public void winCombination555Test() {
+        slotCommon.game("55500", "300",driver);
+    }
+    @Test
+    public void winCombination5555Test() {
+        slotCommon.game("55550", "400",driver);
+    }
+    @Test
+    public void winCombination55555Test() {
+        slotCommon.game("55555", "500",driver);
+    }
     @AfterAll
     public static void closeBrowser(){
         driver.quit();
