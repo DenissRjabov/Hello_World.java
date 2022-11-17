@@ -16,6 +16,8 @@
     <version.webdrivermanager>5.3.1</version.webdrivermanager>
     <version.log4j>2.19.0</version.log4j>
     <version.opencsv>5.7.1</version.opencsv>
+    <version.selenid>6.9.0</version.selenid>
+    <version.slf4j>2.0.3</version.slf4j>
   </properties>
 
   <dependencies>
@@ -48,6 +50,17 @@
       <groupId>com.opencsv</groupId>
       <artifactId>opencsv</artifactId>
       <version>${version.opencsv}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide</artifactId>
+      <version>${version.selenid}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${version.slf4j}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
