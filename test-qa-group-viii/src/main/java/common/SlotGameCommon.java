@@ -24,7 +24,7 @@ public class SlotGameCommon {
 
     private static final Logger log = LogManager.getLogger(SlotGameCommon.class);
 
-    public void game( String winCombination, String winAmount, WebDriver gameDriver, Boolean win) {
+    public int  game( String winCombination, String winAmount, WebDriver gameDriver, Boolean win) {
 
         driver = gameDriver;
 
@@ -108,10 +108,12 @@ public class SlotGameCommon {
         }
 
         log.info("Final balance   : {}", finalBalance);
-        log.info("---------Game Stopped---------\n");
 
         // Errors check
-        assertEquals(0,errorCount);
+        log.info("The amount of errors is {}",errorCount);
+        log.info("---------Game Stopped---------\n");
+
+        return errorCount;
 
     }
 

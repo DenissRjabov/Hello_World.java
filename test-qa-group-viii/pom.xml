@@ -8,12 +8,16 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>18</maven.compiler.source>
+    <maven.compiler.target>18</maven.compiler.target>
+    <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
     <junit5.version>5.9.1</junit5.version>
-    <selenium.version>4.5.3</selenium.version>
-    <version.webdrivermanager>5.3.0</version.webdrivermanager>
+    <selenium.version>4.6.0</selenium.version>
+    <version.webdrivermanager>5.3.1</version.webdrivermanager>
     <version.log4j>2.19.0</version.log4j>
+    <version.opencsv>5.7.1</version.opencsv>
+    <version.selenid>6.9.0</version.selenid>
+    <version.slf4j>2.0.3</version.slf4j>
   </properties>
 
   <dependencies>
@@ -42,7 +46,41 @@
       <artifactId>log4j-core</artifactId>
       <version>${version.log4j}</version>
     </dependency>
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>${version.opencsv}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide</artifactId>
+      <version>${version.selenid}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-simple</artifactId>
+      <version>${version.slf4j}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.plugin.version}</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <debug>true</debug>
+          <fork>true</fork>
+          <compilerArgument>-J-Xss5M</compilerArgument>
+          <meminitial>256m</meminitial>
+          <maxmem>1024m</maxmem>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
